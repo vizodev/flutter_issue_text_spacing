@@ -27,11 +27,10 @@ class _MyAppState extends State<MyApp> {
         background: Colors.white,
         surface: Colors.white,
       ),
+    ).copyWith(
+      // note: material2021 is crashing text spacing in flutter web
+      typography: Typography.material2021(),
     );
-    // .copyWith(
-    //   // note: material2021 is crashing text spacing in flutter web
-    //   typography: Typography.material2021(),
-    // );
 
     return MaterialApp(
       title: 'App Name',
@@ -57,12 +56,12 @@ class _MyAppState extends State<MyApp> {
       ),
       themeMode: ThemeMode.light,
       home: const HomePage(),
-      builder: (context, child) => SizedBox(
-        child: child ?? const SizedBox.shrink(),
-      ),
-      // builder: (context, child) => WebConstrainedBox(
+      // builder: (context, child) => SizedBox(
       //   child: child ?? const SizedBox.shrink(),
       // ),
+      builder: (context, child) => WebConstrainedBox(
+        child: child ?? const SizedBox.shrink(),
+      ),
     );
   }
 }
