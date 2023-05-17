@@ -192,12 +192,10 @@ class SectionOnlyFeatures extends StatelessWidget {
                       padding: const EdgeInsets.all(20),
                       child: Text(
                         'App. namésss, reinvented.',
-                        style: Theme.of(context)
-                            .textTheme
-                            .displayMedium!,
                         // style: Theme.of(context)
                         //     .textTheme
-                        //     .headlineMedium!,
+                        //     .displayMedium!,
+                        style: Theme.of(context).textTheme.headlineMedium!,
                         // style: Theme.of(context).textTheme.headlineSmall!,
                         maxLines: 3,
                       ),

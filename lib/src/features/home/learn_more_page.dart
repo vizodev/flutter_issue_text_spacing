@@ -222,45 +222,40 @@ class FaqQuestionItemText extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = 1.3;
 
-    return IntrinsicHeight(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Flexible(
-            flex: 3,
-            child: Text(
-              text,
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: Colors.black,
-                fontWeight: FontWeight.w700,
-                height: height,
-                fontFeatures: const [FontFeature.proportionalFigures()],
-              ),
-              // minFontSize: 1,
-              // stepGranularity: .1,
-              maxLines: 4,
-              overflow: TextOverflow.clip,
-            ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Flexible(
+          flex: 3,
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.headlineMedium!,
+            // style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+            //   color: Colors.black,
+            //   fontWeight: FontWeight.w700,
+            //   height: height,
+            //   fontFeatures: const [FontFeature.proportionalFigures()],
+            // ),
+            maxLines: 4,
+            overflow: TextOverflow.clip,
           ),
-          const SizedBox(height: 8),
-          Text(
-            description,
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                fontWeight: FontWeight.w300,
-                height: height,
-                letterSpacing: -0.1),
-            // minFontSize: 1,
-            // stepGranularity: .1,
-            maxLines: maxLines,
-            overflow: TextOverflow.ellipsis,
-          ),
-          Flexible(
-            flex: 2,
-            child: SizedBox(height: !isLastIndex ? 32 : 14),
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          description,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+              fontWeight: FontWeight.w300,
+              height: height,
+              letterSpacing: -0.1),
+          maxLines: maxLines,
+          overflow: TextOverflow.ellipsis,
+        ),
+        Flexible(
+          flex: 2,
+          child: SizedBox(height: !isLastIndex ? 32 : 14),
+        ),
+      ],
     );
   }
 }
