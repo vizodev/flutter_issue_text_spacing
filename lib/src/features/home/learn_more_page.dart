@@ -27,18 +27,6 @@ class LearnMorePage extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
-                  Align(
-                    alignment:
-                        const Alignment(0.994, -0.990), // Alignment.topRight,
-                    child: IconButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        padding: const EdgeInsets.all(12),
-                        icon: const Icon(
-                          CupertinoIcons.clear_circled,
-                          size: 28,
-                          color: Colors.black54,
-                        )),
-                  ),
                   ScrollConfiguration(
                     behavior: ScrollConfiguration.of(context)
                         .copyWith(scrollbars: false),
@@ -194,6 +182,20 @@ class LearnMorePage extends StatelessWidget {
                       ),
                     ),
                   ),
+
+                  ///
+                  Align(
+                    alignment:
+                        const Alignment(0.994, -0.990), // Alignment.topRight,
+                    child: IconButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        padding: const EdgeInsets.all(12),
+                        icon: const Icon(
+                          CupertinoIcons.clear_circled,
+                          size: 28,
+                          color: Colors.black54,
+                        )),
+                  ),
                 ],
               ),
             );
@@ -226,21 +228,24 @@ class FaqQuestionItemText extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Flexible(
-          flex: 3,
-          child: Text(
-            text,
-            style: Theme.of(context).textTheme.headlineMedium!,
-            // style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-            //   color: Colors.black,
-            //   fontWeight: FontWeight.w700,
-            //   height: height,
-            //   fontFeatures: const [FontFeature.proportionalFigures()],
-            // ),
-            maxLines: 4,
-            overflow: TextOverflow.clip,
-          ),
+        Text(
+          text,
+          style: Theme.of(context).textTheme.headlineMedium!,
+          // style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+          //   color: Colors.black,
+          //   fontWeight: FontWeight.w700,
+          //   height: height,
+          //   fontFeatures: const [FontFeature.proportionalFigures()],
+          // ),
         ),
+        // OR
+        // Text.rich(
+        //   TextSpan(
+        //     text: text,
+        //     children: [TextSpan(text: 'testinggggg, aa!bb?')],
+        //   ),
+        //   style: Theme.of(context).textTheme.headlineMedium!,
+        // ),
         const SizedBox(height: 8),
         Text(
           description,
